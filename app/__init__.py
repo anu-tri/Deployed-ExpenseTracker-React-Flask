@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory,abort
 from flask.helpers import send_from_directory
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -21,6 +21,7 @@ def create_app(config_class=Config):
     moment.init_app(app)
     # cors.init_app(app)
     
+    abort(404, "And here's why.")
     app.logger.addHandler(logging.StreamHandler())
     app.logger.setLevel(logging.ERROR)
 
