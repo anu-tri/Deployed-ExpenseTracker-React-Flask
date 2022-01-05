@@ -33,11 +33,9 @@ def create_app(config_class=Config):
     def not_found(e):
         return app.send_static_file('index.html')
 
-#     @app.route("/favicon.ico")
-#     def favicon():
-#         return send_from_directory("",
-#                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-#         return "", 200
+    @app.route("/favicon.ico")
+    def favicon():
+        return "", 200
 
     from .blueprints.auth import bp as auth_bp
     app.register_blueprint(auth_bp)
